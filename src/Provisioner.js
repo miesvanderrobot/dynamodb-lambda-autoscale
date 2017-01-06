@@ -20,13 +20,22 @@ export default class Provisioner extends ProvisionerConfigurableBase {
   async getTableNamesAsync(): Promise<string[]> {
 
     // Option 1 - All tables (Default)
-    return await this.db.listAllTableNamesAsync();
+    //return await this.db.listAllTableNamesAsync();
 
     // Option 2 - Hardcoded list of tables
     // return ['Table1', 'Table2', 'Table3'];
 
     // Option 3 - DynamoDB / S3 configured list of tables
     // return await ...;
+
+    // Option 4 - RegEx filtered list of tables
+    // return await ...;
+    var tableNames = await this.db.listAllTableNamesAsync();
+    var regex = new RegExp("lodging-rates|lodging-taxes|lodging-stay|pricing");
+    // TODO - get this regex string from the Provisioner json config file
+    var filteredTableNames = tableNames.filter(/./.test.bind(regex));
+    return filteredTableNames;
+  
   }
 
   // Gets the json settings which control how the specifed table will be autoscaled
