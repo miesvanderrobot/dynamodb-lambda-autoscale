@@ -1,13 +1,13 @@
 {
   "ReadCapacity": {
-    "Min": 5,
+    "Min": 50,
     "Increment": {
       "When": {
         "UtilisationIsAbovePercent": 80
       },
       "By": {
         "ProvisionedPercent": 30,
-        "Units": 200
+        "Units": 100
       }
     },
     "Decrement": {
@@ -23,14 +23,14 @@
     }
   },
   "WriteCapacity": {
-    "Min": 5,
+    "Min": 50,
     "Increment": {
       "When": {
         "UtilisationIsAbovePercent": 80
       },
       "By": {
         "ProvisionedPercent": 30,
-        "Units": 100
+        "Units": 200
       }
     },
     "Decrement": {
