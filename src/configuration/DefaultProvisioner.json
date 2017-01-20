@@ -1,47 +1,47 @@
 {
   "ReadCapacity": {
-    "Min": 50,
+    "Min": 300,
     "Increment": {
       "When": {
-        "UtilisationIsAbovePercent": 80
+        "UtilisationIsAbovePercent": 75
       },
       "By": {
-        "ProvisionedPercent": 30,
-        "Units": 100
-      }
-    },
-    "Decrement": {
-      "When": {
-        "UtilisationIsBelowPercent": 35,
-        "AfterLastIncrementMinutes": 60,
-        "AfterLastDecrementMinutes": 60,
-        "UnitAdjustmentGreaterThan": 5
-      },
-      "To": {
-        "ConsumedPercent": 120
-      }
-    }
-  },
-  "WriteCapacity": {
-    "Min": 50,
-    "Increment": {
-      "When": {
-        "UtilisationIsAbovePercent": 80
-      },
-      "By": {
-        "ProvisionedPercent": 30,
+        "ProvisionedPercent": 50,
         "Units": 200
       }
     },
     "Decrement": {
       "When": {
         "UtilisationIsBelowPercent": 35,
-        "AfterLastIncrementMinutes": 60,
+        "AfterLastIncrementMinutes": 90,
         "AfterLastDecrementMinutes": 60,
-        "UnitAdjustmentGreaterThan": 5
+        "UnitAdjustmentGreaterThan": 50
       },
       "To": {
-        "ConsumedPercent": 120
+        "ProvisionedPercent": 55
+      }
+    }
+  },
+  "WriteCapacity": {
+    "Min": 300,
+    "Increment": {
+      "When": {
+        "UtilisationIsAbovePercent": 75
+      },
+      "By": {
+        "ProvisionedPercent": 50,
+        "Units": 200
+      }
+    },
+    "Decrement": {
+      "When": {
+        "UtilisationIsBelowPercent": 35,
+        "AfterLastIncrementMinutes": 90,
+        "AfterLastDecrementMinutes": 60,
+        "UnitAdjustmentGreaterThan": 50
+      },
+      "To": {
+        "ProvisionedPercent": 55
       }
     }
   }
